@@ -15,7 +15,7 @@ export default {
         info: '#17A2B8',
       },
       fontFamily:{
-        'nunito': ['nunito', 'sans-serif'],
+        'DMSerif': ['DM Serif Display', 'sans-serif'],
       }
     },
   },
