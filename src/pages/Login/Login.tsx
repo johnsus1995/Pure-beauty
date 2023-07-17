@@ -1,11 +1,11 @@
-import { ReactComponent as Logo } from "src/assets/logo.svg";
+import Logo from "src/assets/logo.svg";
 
 export const Login = () => {
   return (
     <div className="flex h-screen bg-primary">
-      <div className="">
+      <div className="w-1/2">
         <div className="px-14 py-14">
-          <Logo />
+          <img src={Logo} alt="" />
           <div className="font-DMSerif text-secondary pt-10 flex flex-col gap-10">
             <p className="text-xl">Login</p>
             <div className="flex flex-col text-secondary-100 pt-5">
@@ -18,7 +18,7 @@ export const Login = () => {
               <input
                 type="text"
                 id="email"
-                className="bg-primary border border-x-0 border-t-0 border-b-1 border-secondary "
+                className="bg-primary border border-x-0 border-t-0 border-b-1 border-secondary outline-none"
               />
             </div>
             <div className="flex flex-col text-xs">
@@ -26,7 +26,7 @@ export const Login = () => {
               <input
                 type="text"
                 id="email"
-                className="bg-primary border border-x-0 border-t-0 border-b-1 border-secondary"
+                className="bg-primary border border-x-0 border-t-0 border-b-1 border-secondary outline-none"
               />
             </div>
             <button className="border border-secondary rounded-full">
@@ -39,10 +39,11 @@ export const Login = () => {
         </div>
       </div>
       <div className="w-full flex justify-end">
-        <div className="py-14">
+        <div className="py-20 flex">
           <img
             src="src/assets/images/login-hero.png"
             alt="login-page"
+            className="rounded-tl-3xl rounded-bl-3xl"
           />
         </div>
       </div>
