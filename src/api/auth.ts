@@ -1,4 +1,4 @@
-import customAxios from "../utils/api";
+import customAxios from "src/utils/api";
 
 export const login = (config={}) => {
   // const {} = config
