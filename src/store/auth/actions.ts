@@ -5,8 +5,15 @@ interface ResponseData {
     data:object
 }
 
-export const login = createAsyncThunk("auth/login", async (config:object) => {
-      const res = await authApi.login(config);
-      return res.data;
-  
-  });
+interface LoginConfig {
+    email:string,
+    password:string
+}
+
+export const login = createAsyncThunk<ResponseData, LoginConfig>(
+  "auth/login",
+  async (config:LoginConfig) => {
+    const res = await authApi.login(config);
+    return res.data;
+  }
+);

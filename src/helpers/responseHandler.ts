@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 interface ErrorResponse {
   response: {
     status: number;
@@ -34,6 +36,6 @@ export function apiErrorHandler(err: ErrorResponse) {
   return new Error("Unexpected Error Occurred!");
 }
 
-export function apiSuccessHandler(res: object) {
+export function apiSuccessHandler(res: AxiosResponse) {
   return res;
 }

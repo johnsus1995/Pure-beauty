@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import * as actions from "./actions";
 
 export interface User {
@@ -7,46 +7,39 @@ export interface User {
     loading:boolean,
 }
 
-const initialState : NonNullable<User> = {
+export interface AuthAction {
+  token:string
+}
+
+const initialState : User= {
     user: {},
     error: {},
     loading: false,
 }
 
-const authSlice = createSlice({
+const authSlice = createSlice({ 
     name: "auth",
     initialState,
     reducers: {
       logout: (state) => {
-        state.user = null;
+        state.user = {};
         localStorage.clear();
       },
     },
     extraReducers: {
-      [actions.login.pending]: (state:object) => {
+      [actions.login.pending.type]: (state) => {
         state.loading = true;
       },
-      [actions.login.fulfilled]: (state, action) => {
+      [actions.login.fulfilled.type]: (state, action:PayloadAction<AuthAction>) => {
         state.loading = false;
         state.user = action.payload;
         localStorage.setItem(
           "user_token",action?.payload?.token
         );
       },
-      [actions.login.rejected]: (state, action) => {
+      [actions.login.rejected.type]: (state, action:PayloadAction<AuthAction>) => {
         state.loading = false;
         state.error = action.payload;
-      },
-      [actions.register.pending]: (state, action) => {
-        state.loading = true;
-      },
-      [actions.register.fulfilled]: (state, action) => {
-        state.loading = false;
-        state.user = action.payload;
-      },
-      [actions.register.rejected]: (state, action) => {
-        state.loading = false;
-        state.error = action?.payload?.message;
       },
     },
   });
