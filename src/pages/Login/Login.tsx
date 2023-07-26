@@ -1,6 +1,19 @@
 import Logo from "src/assets/logo.svg";
+import { useAppDispatch } from "src/hooks/hooks";
+import * as authActions from "src/store/auth/actions"
 
 export const Login = () => {
+  const dispatch = useAppDispatch();
+
+  const onLogin = async () => {
+    const reqData = {
+      email:"",
+      password:""
+    }
+   const res =  await dispatch(authActions.login(reqData))
+   console.log(res)
+  }
+
   return (
     <div className="flex h-screen bg-primary">
       <div className="w-1/2">
@@ -29,7 +42,7 @@ export const Login = () => {
                 className="bg-primary border border-x-0 border-t-0 border-b-1 border-secondary outline-none"
               />
             </div>
-            <button className="border border-secondary rounded-full">
+            <button onClick={onLogin} className="border border-secondary rounded-full">
               LOGIN
             </button>
             <div className="flex justify-center">
