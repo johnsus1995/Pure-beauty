@@ -7,8 +7,8 @@ export const Login = () => {
 
   const onLogin = async () => {
     const reqData = {
-      email:"",
-      password:""
+      email:"test@gmail.com",
+      password:"password"
     }
    const res =  await dispatch(authActions.login(reqData))
    console.log(res)
