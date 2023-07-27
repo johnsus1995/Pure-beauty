@@ -7,11 +7,10 @@ export const Login = () => {
 
   const onLogin = async () => {
     const reqData = {
-      email:"test@gmail.com",
-      password:"password"
+      email:"wpcustomer",
+      password:"l!rDymqRgR1aG)MxC^XF%v9$"
     }
    const res =  await dispatch(authActions.login(reqData))
-   console.log(res)
   }
 
   return (

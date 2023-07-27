@@ -5,7 +5,7 @@ import { AxiosResponse } from "axios";
 export const login = (config = {}): Promise<AxiosResponse> => {
   // const {} = config
   return customAxios({
-    url: "/users/sign-in",
+    url: "/api/v1/token ",
     method: "POST",
     ...config
   });
