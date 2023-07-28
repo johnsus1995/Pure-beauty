@@ -12,10 +12,10 @@ const customAxios = axios.create({
 
 customAxios.interceptors.request.use(
   function (config) {
-    // const token = localStorage.getItem("user_token")
+    const token = localStorage.getItem("user_token")
     config.headers = {
       "Content-Type": "application/json",
-      // Authorization: token ? `Bearer ${token}` : "",
+      Authorization: token ? `Bearer ${token}` : "",
       ...config.headers,
     } as AxiosRequestHeaders
 

@@ -1,16 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import Logo from "src/assets/logo.svg";
 import { useAppDispatch } from "src/hooks/hooks";
 import * as authActions from "src/store/auth/actions"
 
+interface loginResponse {
+    jwt_token:string
+}
+
 export const Login = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   const onLogin = async () => {
     const reqData = {
-      email:"wpcustomer",
+      username:"wpcustomer",
       password:"l!rDymqRgR1aG)MxC^XF%v9$"
     }
-   const res =  await dispatch(authActions.login(reqData))
+   const res =  await dispatch(authActions.login({data:reqData}))
+   if((res.payload as loginResponse).jwt_token){
+      navigate("/shop")
+   }
   }
 
   return (

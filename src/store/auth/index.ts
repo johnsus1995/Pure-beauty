@@ -8,7 +8,7 @@ export interface User {
 }
 
 export interface AuthAction {
-  token:string
+  jwt_token:string
 }
 
 const initialState : User= {
@@ -32,9 +32,9 @@ const authSlice = createSlice({
       },
       [actions.login.fulfilled.type]: (state, action:PayloadAction<AuthAction>) => {
         state.loading = false;
-        state.user = action.payload;
+        // state.user = action.payload;
         localStorage.setItem(
-          "user_token",action?.payload?.token
+          "user_token",action?.payload?.jwt_token
         );
       },
       [actions.login.rejected.type]: (state, action:PayloadAction<AuthAction>) => {
