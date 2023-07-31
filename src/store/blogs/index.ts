@@ -13,7 +13,7 @@ export interface Blogs {
     loading:boolean,
 }
 
-export interface AuthAction {
+export interface BlogAction {
   jwt_token:string
 }
 
